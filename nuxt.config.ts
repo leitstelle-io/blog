@@ -14,7 +14,17 @@ export default defineNuxtConfig({
   content: {
     // https://content.nuxtjs.org/api/configuration
   },
-  head: {
-    title: 'leitstelle.io',
+  app: {
+    head: {
+      title: 'leitstelle.io',
+    },
+    script: [
+      { 
+        src: 'https://cdn.usefathom.com/script.js',
+        'data-spa': 'auto',
+        'data-site': 'LIAAMHIM',
+        'defer': true
+      }
+    ]
   }
 })
