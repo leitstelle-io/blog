@@ -17,14 +17,15 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'leitstelle.io',
+      script: [
+        {
+          type: 'text/javascript',
+          src: 'https://cdn.usefathom.com/script.js',
+          'data-spa': 'auto',
+          'data-site': 'LIAAMHIM',
+          'defer': true
+        }
+      ]
     },
-    script: [
-      { 
-        src: 'https://cdn.usefathom.com/script.js',
-        'data-spa': 'auto',
-        'data-site': 'LIAAMHIM',
-        'defer': true
-      }
-    ]
   }
 })
