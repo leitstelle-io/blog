@@ -12,5 +12,3 @@ Wie man unschwer erkennen kann, liegen zwischen der Konzeption und der aktuellen
 Trotzdem hat sich die ursprüngliche Idee weiterentwickelt und Ich habe mich dazu entschlossen, eine Domain zu erwerben. Dies stellt gewissermaßen den initialen Schritt für all meine Projekte dar und kann mittlerweile sogar als eine Art Hobby betrachtet werden. Ursprünglich hatte dieses Vorhaben bereits lange vor der eigentlichen Idee eine Domain, allerdings hatte Ich die geplante Adresse `firefighters.io` aus verschiedenen Gründen verkauft. Direkt nach dem Verkauf konnte Ich der Versuchung nicht widerstehen, nach einem adäquaten Ersatz zu suchen. So stieß Ich nach stundenlanger Recherche auf die Domain `leitstelle.io`.
 
 Die Auswahl der Domain markiert nun offiziell den Beginn dieses Projekts. Sie lädt Euch dazu ein, an dieser Reise teilzuhaben – sei es als Mitentwickler, potenzieller Spieler oder einfach als jemand, der die Leidenschaft für Feuerwehr und Spiele teilt.
-
-André
