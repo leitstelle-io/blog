@@ -7,6 +7,8 @@ routeId: "database-change-welcome-and-party"
 
 ![](/images/blog/database.png)
 
+# Datenbank wechsel, herzliches Willkommen und das Dorffest
+
 Gestern habe Ich die Datenbankschicht aktualisiert (kein MySQL mehr) und werde diese Verbesserung bald auf dem Alpha Server deployen. Ein wichtiger Schritt, um das Projekt voranzutreiben und eine gute Basis bereit zustellen - keiner will lange Ladezeiten, richtig?
 
 Vorab möchte Ich auf unser alljährliches Dorffest hinweisen, das heute bis Sonntag stattfindet. Die Feuerwehr richtet das Fest aus, daher wird es an diesem Wochenende etwas ruhiger in Bezug auf größere Updates.
