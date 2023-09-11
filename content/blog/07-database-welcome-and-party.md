@@ -5,7 +5,7 @@ description: "Bereits zu Projektbeginn habe ich im Hintergrund am Backend gearbe
 routeId: "database-change-welcome-and-party"
 ---
 
-![](/images/blog/database.png)
+![](/images/blog/07-database.png)
 
 # Datenbank wechsel, herzliches Willkommen und das Dorffest
 

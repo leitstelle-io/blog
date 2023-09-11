@@ -5,7 +5,7 @@ title: "Next: OSRM und Authentifizierung"
 routeId: "osrm-and-auth"
 ---
 
-![](/images/blog/next-osrm-and-auth.png)
+![](/images/blog/04-next-osrm-and-auth.png)
 
 # Next: OSRM und Authentifizierung
 Meine nächsten Schritte beinhalten die Erstellung eines Proof of Concept (POC), bei dem ich zunächst das Routing und die Echtzeitanzeige von Fahrzeugen sowohl im Backend als auch im Frontend testen werde.

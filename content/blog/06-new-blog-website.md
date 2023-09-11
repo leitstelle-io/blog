@@ -5,7 +5,7 @@ description: "Die Website hat jetzt einen Blog für Neuigkeiten, die auch außer
 routeId: "blog-redesign"
 ---
 
-![](/images/blog/new-website.png)
+![](/images/blog/06-new-website.png)
 
 # Der Blog in neuer Pracht
 

@@ -5,7 +5,7 @@ description: "Bereits zu Projektbeginn habe ich im Hintergrund am Backend gearbe
 routeId: "alpha-api-geht-online"
 ---
 
-![](/images/blog/api-goes-live.png)
+![](/images/blog/05-api-goes-live.png)
 
 # Erste API geht heute online 🌍
 Bereits zu Beginn des Projekts habe ich im Hintergrund am Backend gearbeitet, um die Grundlage der API und der allgemeinen Spielarchitektur zu schaffen. Mit dem Ziel, schnell Ergebnisse präsentieren zu können, ist die API nun bereits online.
