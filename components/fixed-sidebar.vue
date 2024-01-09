@@ -21,12 +21,12 @@ import Glow from './glow.vue';
           <p class="flex items-baseline gap-x-2 text-[0.8125rem]/6 text-gray-500">
             <a
               href="https://wellerli.com"
-              class="group cursor-pointer relative isolate flex items-center rounded-lg px-2 py-0.5 text-[0.8125rem]/6 font-medium text-white/30 transition-colors hover:text-sky-300"
+              class="group cursor-pointer relative isolate flex items-center rounded-lg px-2 py-0.5 text-[0.8125rem]/6 font-medium dark:text-white/30 text-black/30 transition-colors hover:text-sky-300"
             >
               <span
-                class="absolute inset-0 -z-10 scale-75 rounded-lg bg-white/5 opacity-0 transition group-hover:scale-100 group-hover:opacity-100"
+                class="absolute inset-0 -z-10 scale-75 rounded-lg dark:bg-white/5 bg-black/5 opacity-0 transition group-hover:scale-100 group-hover:opacity-100"
               ></span>
-              made by&nbsp;<span class="self-baseline text-white">wellerli</span>
+              made by&nbsp;<span class="self-baseline dark:text-white text-black">wellerli</span>
             </a>
           </p>
         </div>

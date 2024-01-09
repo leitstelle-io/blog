@@ -17,7 +17,7 @@ const formattedDate = ref(
 
 
 <template>
-  <time :datetime="formattedDate" class="xl:pointer-events-auto text-xs font-medium text-white/50">
+  <time :datetime="formattedDate" class="xl:pointer-events-auto text-xs font-medium dark:text-white/50 text-black/50">
     {{ formattedDate }}
   </time>
 </template>
