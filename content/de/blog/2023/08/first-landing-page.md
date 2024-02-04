@@ -1,8 +1,7 @@
 ---
-date: "2023-08-04"
+published_at: "2023-08-04"
 description: "Die provisorische Website ist online, Feedback ist willkommen, schnelle und praktische Ergebnisse stehen im Fokus."
 title: "Die 'Website' ist live ✨"
-routeId: "erste-landing-page"
 ---
 
 ![](/images/blog/03-first-landing-page.png)

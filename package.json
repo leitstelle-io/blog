@@ -10,12 +10,18 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@nuxtjs/i18n": "^8.0.0",
     "@nuxtjs/tailwindcss": "^6.8.0",
     "@tailwindcss/typography": "^0.5.9",
     "@types/node": "^18.17.1",
     "nuxt": "^3.6.5"
   },
   "dependencies": {
-    "@nuxt/content": "^2.7.2"
+    "@nuxt/content": "^2.7.2",
+    "@turf/helpers": "^6.5.0",
+    "@turf/line-chunk": "^6.5.0",
+    "@turf/line-slice": "^6.5.0",
+    "@vueuse/core": "^10.7.2",
+    "maplibre-gl": "^3.6.2"
   }
 }

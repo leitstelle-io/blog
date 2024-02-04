@@ -1,8 +1,7 @@
 ---
-date: "2023-08-05"
+published_at: "2023-08-05"
 description: "Ich plane, einen Proof of Concept (POC) zu erstellen, um das Routing, die Echtzeitanzeige von Fahrzeugen im Backend und Frontend sowie die Fahrzeugsimulation mit OSRM zu testen, während ich gleichzeitig im Frontend Login- und Registrierungsmöglichkeiten integriere, um den POC nahtlos dorthin zu verlagern und die Gesamtfunktionalität des Projekts zu optimieren."
 title: "Next: OSRM und Authentifizierung"
-routeId: "osrm-and-auth"
 ---
 
 ![](/images/blog/04-next-osrm-and-auth.png)

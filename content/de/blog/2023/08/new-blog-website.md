@@ -1,8 +1,7 @@
 ---
-date: "2023-08-09"
+published_at: "2023-08-09"
 title: "Der Blog in neuer Pracht"
 description: "Die Website hat jetzt einen Blog für Neuigkeiten, die auch außerhalb von Discord verfolgt werden können, während der Discord-Server für Diskussionen bestehen bleibt."
-routeId: "blog-redesign"
 ---
 
 ![](/images/blog/06-new-website.png)

@@ -1,8 +1,7 @@
 ---
-date: "2015-01-01"
+published_at: "2015-01-01"
 title: "Ein eigenes Feuerwehrspiel?"
 description: "Ich träumte von einem eigenen Feuerwehrspiel, inspiriert durch bestehende Spiele, und lade nun ein, bei meinem Projekt leitstelle.io Teil dieser Vision zu werden, unterstützt durch meine Entwicklungs- und Spielerfahrung."
-routeId: "der-traum"
 ---
 
 # Ein eigenes Feuerwehrspiel?

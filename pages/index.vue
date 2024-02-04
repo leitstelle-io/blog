@@ -1,23 +1,10 @@
-<script setup lang="ts">
-const { data } = await useAsyncData('content', () => {
-  return queryContent('/blog').sort({'date': -1}).find()
-})
-</script>
-
 <template>
-  <div class="flex min-h-full flex-col bg-white dark:bg-gray-950">
-    <fixed-sidebar>
-      <intro />
-    </fixed-sidebar>
-    <div class="relative flex-auto">
-      <timeline />
-      <main class="space-y-20 py-20 sm:space-y-32 sm:py-32">
-        <template v-for="entry in data">
-          <Article :id="entry.routeId" :date="entry.date">
-            <ContentRendererMarkdown :value="entry.body" />
-          </Article>
-        </template>
-      </main>
+  <main class="flex flex-1 flex-col">
+    <div class="mx-auto flex w-full max-w-3xl flex-col gap-16 px-4 py-12 lg:px-0 lg:py-32">
+      <Header/>
+      <Map/>
+      <Features/>
+      <Blog-List/>
     </div>
-  </div>
+  </main>
 </template>

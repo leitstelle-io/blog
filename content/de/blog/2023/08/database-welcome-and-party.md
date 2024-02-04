@@ -1,8 +1,7 @@
 ---
-date: "2023-08-11"
+published_at: "2023-08-11"
 title: "Datenbank wechsel, herzliches Willkommen und Dorffest"
 description: "Bereits zu Projektbeginn habe ich im Hintergrund am Backend gearbeitet, um die Grundlage der API und Spielarchitektur zu schaffen, wodurch nun die API online ist und es möglich ist, alle Stationen anzuzeigen sowie Details einzelner Stationen abzurufen."
-routeId: "database-change-welcome-and-party"
 ---
 
 ![](/images/blog/07-database.png)

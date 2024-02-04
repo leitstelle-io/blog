@@ -1,8 +1,7 @@
 ---
-date: "2023-08-15"
+published_at: "2023-08-15"
 title: "Mehr Individualität für die Discord-Community! ✨"
 description: "Auf unserem Discord-Server können Mitglieder jetzt ihre Herkunft, Benachrichtigungen und BOS-Zugehörigkeit angeben, um gezielter zu interagieren."
-routeId: "roles-for-the-discord-community"
 ---
 
 # Mehr Individualität für die Discord-Community! ✨

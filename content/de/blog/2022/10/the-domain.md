@@ -1,8 +1,7 @@
 ---
-date: "2022-10-30"
+published_at: "2022-10-30"
 title: "Idee → Domain"
 description: "Trotz mehrjährigem Zeitabstand zwischen Idee und Umsetzung sowie der üblichen Herausforderungen bei Projektplanung, hat sich die ursprüngliche Idee weiterentwickelt, wurde durch den Kauf einer Domain konkretisiert und lädt Interessierte ein, Teil eines feuerwehrbegeisterten Spieleprojekts zu werden."
-routeId: "die-domain"
 ---
 
 # Idee → Domain

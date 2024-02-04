@@ -1,8 +1,7 @@
 ---
-date: "2024-01-08"
+published_at: "2024-01-08"
 title: "Erster Einsatz und erste Schritte mit OSRM"
 description: "Von den ersten Schritten mit OSRM bis zur Entwicklung eines eigenen Map Debugging Tools und dem Ausblick auf die Integration von Overpass."
-routeId: "first-steps-with-osrm"
 ---
 
 ![](/images/blog/10-first-steps-with-osrm.png)
