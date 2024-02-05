@@ -15,7 +15,8 @@ const changeLocale = (locale) => {
 
 <template>
   <div class="flex flex-col md:flex-row items-center justify-between p-4">
-    <nuxt-link class="text-black hover:text-yellow-400" to="/">
+    <nuxt-link class="text-black hover:text-yellow-400 flex space-x-2" :to="localePath('/')">
+      <img src="/leitstelle.io.logo.png" alt="Das leitstelle.io Logo" class="w-10 h-full">
       <div class="flex items-center gap-3"><span class="text-xl font-bold">leitstelle.io</span></div>
     </nuxt-link>
     <nav class="space-x-10">
