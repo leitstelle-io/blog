@@ -2,14 +2,10 @@
 const {locale} = useI18n()
 const localePath = useLocalePath()
 
-const {data: blogPosts, refresh} = await useAsyncData(
-    'blogPosts',
-    () => queryContent(`${locale.value}/blog`).sort({'published_at': -1})
+const blogPosts = await
+    queryContent(`${locale.value}/blog`).sort({'published_at': -1})
         .limit(10)
         .find()
-)
-
-watch(() => locale.value, refresh)
 </script>
 
 <template>
@@ -18,7 +14,7 @@ watch(() => locale.value, refresh)
       {{ $t('blog.latest') }}
     </p>
     <template v-for="blog in blogPosts">
-      <nuxt-link class="my-1 hover:text-yellow-500" :to="blog?._path?.substring(3)">
+      <nuxt-link class="my-1 hover:text-yellow-500" :to="blog?._path">
         {{ blog?.title }}
         <!--<formatted-date :date="blog.date"/>-->
       </nuxt-link>

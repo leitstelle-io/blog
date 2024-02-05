@@ -1,12 +1,15 @@
 <script setup>
 const {locale} = useI18n()
 
+const {data: faqContent, refresh} = await useAsyncData(
+    'blogPosts',
+    () => queryContent(`${locale.value}/faq`)
+        .find()
+)
 
-const {data: faqContent, refresh} = await useAsyncData('faqContent', () => {
-  return queryContent(`${locale.value}/faq`).find()
+watch(locale, refresh(), {
+  immediate: true
 })
-
-watch(() => locale.value, refresh)
 
 const expandedItems = ref([]);
 const toggleAnswer = (faqItemPath) => {

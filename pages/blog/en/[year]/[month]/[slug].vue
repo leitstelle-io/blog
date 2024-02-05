@@ -11,9 +11,10 @@ const {data: blogPost, refresh} = await useAsyncData(
 
 if (!blogPost.value) await clearError({redirect: '/'})
 
-watch(() => locale.value, refresh)
+watch(locale, refresh(), {
+  immediate: true
+})
 </script>
-
 
 <template>
   <div class="mx-auto flex w-full max-w-3xl flex-col gap-16 px-4 py-12 lg:px-0 lg:py-32">

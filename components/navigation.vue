@@ -1,15 +1,22 @@
 <script setup lang="ts">
-const {setLocale} = useI18n()
+const {locales, locale} = useI18n()
 const localePath = useLocalePath()
+const switchLocalePath = useSwitchLocalePath()
 const open = ref(false)
 
 import { onClickOutside } from '@vueuse/core'
 const target = ref(null)
 onClickOutside(target, event => open.value = !open.value)
 
-const changeLocale = (locale) => {
-  setLocale(locale)
+const availableLocales = computed(() => {
+  return (locales.value).filter(i => i.code !== locale.value)
+})
+
+
+const router = useRouter()
+const changeLocale = (localeCode: string) => {
   open.value = !open.value
+  router.push(switchLocalePath(localeCode))
 }
 </script>
 
@@ -32,8 +39,14 @@ const changeLocale = (locale) => {
       </div>
       <div v-if="open" ref="target" class="absolute right-0 z-10 mt-2 w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
         <div class="py-1" role="none">
-          <button @click="changeLocale('de')" class="text-gray-700 block px-4 py-2 text-sm hover:text-yellow-400 w-full text-left">Deutsch</button>
-          <button @click="changeLocale('en')" class="text-gray-700 block px-4 py-2 text-sm hover:text-yellow-400 w-full text-left">English</button>
+          <template v-for="locale in availableLocales" :key="locale.code">
+            <button
+                class="text-gray-700 block px-4 py-2 text-sm hover:text-yellow-400 w-full text-left"
+                @click="changeLocale(locale.code)"
+            >
+              {{locale.name}}
+            </button>
+          </template>
         </div>
       </div>
     </div>

@@ -2,7 +2,6 @@
 export default defineNuxtConfig({
   devtools: {
     enabled: true,
-
     timeline: {
       enabled: true
     }
@@ -15,11 +14,8 @@ export default defineNuxtConfig({
   css: [
     'maplibre-gl/dist/maplibre-gl.css',
     'assets/main.css'
-
   ],
-  content: {
-    // https://content.nuxtjs.org/api/configuration
-  },
+  content: {},
   app: {
     head: {
       title: 'leitstelle.io',

@@ -2,11 +2,16 @@
 const {locale} = useI18n()
 const localePath = useLocalePath();
 
-const {data: blogPosts, refresh} = await useAsyncData('blogPosts', () => {
-  return queryContent(`${locale.value}/blog`).sort({'published_at': -1}).find()
-})
+const {data: blogPosts, refresh} = await useAsyncData(
+    'blogPosts',
+    () => queryContent(`${locale.value}/blog`)
+        .sort({'published_at': -1})
+        .find()
+)
 
-watch(() => locale.value, refresh)
+watch(locale, refresh(), {
+  immediate: true
+})
 </script>
 <template>
   <div class="mx-auto flex w-full max-w-3xl flex-col gap-16 px-4 py-12 lg:px-0 lg:py-32">
@@ -21,7 +26,7 @@ watch(() => locale.value, refresh)
           </div>
           <div class="group relative">
             <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-              <nuxt-link :to="localePath(blog?._path?.substring(3))">
+              <nuxt-link :to="localePath(blog?._path)">
                 <span class="absolute inset-0"></span>
                 {{ blog.title }}
               </nuxt-link>

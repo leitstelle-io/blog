@@ -2,14 +2,18 @@
 const {params} = useRoute()
 const {locale} = useI18n()
 
-
-const {data: blogPost, refresh} = await useAsyncData('blogPost', () => queryContent(
-    `${locale.value}/blog/${params.year}/${params.month}/${params.slug}`
-).findOne())
+const {data: blogPost, refresh} = await useAsyncData(
+    'blogPost',
+    () => queryContent(
+        `${locale.value}/blog/${params.year}/${params.month}/${params.slug}`
+    ).findOne()
+)
 
 if (!blogPost.value) await clearError({redirect: '/'})
 
-watch(() => locale.value, refresh)
+watch(locale, refresh(), {
+  immediate: true
+})
 </script>
 
 <template>
