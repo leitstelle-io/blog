@@ -16,7 +16,7 @@ export default {
     features: {
         map: {
             title: 'Deine Welt, Dein Spiel',
-            description: 'Erkunde eine aufregende Welt direkt vor deiner Haustür! Auf einer realen Karte wirst du zum Meister der koordination, indem du vertraute Umgebungen erkundest und die Herausforderungen deiner Nachbarschaft meisterst.\n'
+            description: 'Erkunde eine aufregende Welt direkt vor deiner Haustür! Auf einer realen Karte wirst du zum Meister der Koordination, indem du vertraute Umgebungen erkundest und die Herausforderungen deiner Nachbarschaft meisterst.'
         },
         multiplayer: {
             title: 'Spiele mit Freunden',
