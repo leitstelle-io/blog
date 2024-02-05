@@ -7,7 +7,7 @@ const {data: faqContent, refresh} = await useAsyncData(
         .find()
 )
 
-watch(locale, refresh(), {
+watchEffect(locale, refresh(), {
   immediate: true
 })
 

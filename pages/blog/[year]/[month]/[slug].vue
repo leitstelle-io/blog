@@ -4,14 +4,13 @@ const {locale} = useI18n()
 
 const {data: blogPost, refresh} = await useAsyncData(
     'blogPost',
-    () => queryContent(
-        `${locale.value}/blog/${params.year}/${params.month}/${params.slug}`
-    ).findOne()
+    () => queryContent(locale.value, 'blog', params.year, params.month, params.slug)
+        .findOne()
 )
 
 if (!blogPost.value) await clearError({redirect: '/'})
 
-watch(locale, refresh(), {
+watchEffect(locale, refresh(), {
   immediate: true
 })
 </script>

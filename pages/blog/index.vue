@@ -9,7 +9,7 @@ const {data: blogPosts, refresh} = await useAsyncData(
         .find()
 )
 
-watch(locale, refresh(), {
+watchEffect(locale, refresh(), {
   immediate: true
 })
 </script>
