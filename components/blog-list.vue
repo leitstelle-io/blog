@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { locale } = useI18n()
+const localePath = useLocalePath()
 
 const blogPosts = ref()
 
@@ -28,6 +29,6 @@ watch(() => locale.value, fetchPosts)
     </template>
   </div>
   <div>
-    <nuxt-link :to="{name: 'blog'}" class="mt-12 text-base font-normal hover:text-yellow-400">{{$t('blog.readMore')}}</nuxt-link>
+    <nuxt-link :to="localePath('/blog')" class="mt-12 text-base font-normal hover:text-yellow-400">{{$t('blog.readMore')}}</nuxt-link>
   </div>
 </template>

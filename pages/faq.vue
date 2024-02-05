@@ -3,7 +3,6 @@ const {locale} = useI18n()
 
 const faq = ref()
 
-
 const fetchFaq = async () => {
   const {data} = await useAsyncData(`content/${locale.value}/faq`, () => {
     return queryContent(`${locale.value}/faq`).find()

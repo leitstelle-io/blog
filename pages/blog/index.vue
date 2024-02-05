@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const {locale} = useI18n()
+const localePath = useLocalePath();
 
 const blogPosts = ref()
 
@@ -27,7 +28,7 @@ watch(() => locale.value, fetchPosts)
           </div>
           <div class="group relative">
             <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-              <nuxt-link :to="blog?._path?.substring(3)">
+              <nuxt-link :to="localePath(blog?._path?.substring(3))">
                 <span class="absolute inset-0"></span>
                 {{ blog.title }}
               </nuxt-link>
