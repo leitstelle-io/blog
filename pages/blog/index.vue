@@ -2,18 +2,11 @@
 const {locale} = useI18n()
 const localePath = useLocalePath();
 
-const blogPosts = ref()
+const {data: blogPosts, refresh} = await useAsyncData('blogPosts', () => {
+  return queryContent(`${locale.value}/blog`).sort({'published_at': -1}).find()
+})
 
-const fetchPosts = async () => {
-  const {data} = await useAsyncData(`content/${locale.value}/blog`, () => {
-    return queryContent(`${locale.value}/blog`).sort({'published_at': -1}).find()
-  })
-  blogPosts.value = data.value
-}
-
-fetchPosts()
-
-watch(() => locale.value, fetchPosts)
+watch(() => locale.value, refresh)
 </script>
 <template>
   <div class="mx-auto flex w-full max-w-3xl flex-col gap-16 px-4 py-12 lg:px-0 lg:py-32">

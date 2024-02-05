@@ -1,19 +1,15 @@
 <script setup lang="ts">
-const { locale } = useI18n()
+const {locale} = useI18n()
 const localePath = useLocalePath()
 
-const blogPosts = ref()
+const {data: blogPosts, refresh} = await useAsyncData(
+    'blogPosts',
+    () => queryContent(`${locale.value}/blog`).sort({'published_at': -1})
+        .limit(10)
+        .find()
+)
 
-const fetchPosts = async () => {
-  const {data} = await useAsyncData(`content/${locale.value}/blog`, () => {
-    return queryContent(`${locale.value}/blog`).sort({'published_at': -1}).limit(10).find()
-  })
-  blogPosts.value = data.value
-}
-
-fetchPosts()
-
-watch(() => locale.value, fetchPosts)
+watch(() => locale.value, refresh)
 </script>
 
 <template>
@@ -29,6 +25,8 @@ watch(() => locale.value, fetchPosts)
     </template>
   </div>
   <div>
-    <nuxt-link :to="localePath('/blog')" class="mt-12 text-base font-normal hover:text-yellow-400">{{$t('blog.readMore')}}</nuxt-link>
+    <nuxt-link :to="localePath('/blog')" class="mt-12 text-base font-normal hover:text-yellow-400">
+      {{ $t('blog.readMore') }}
+    </nuxt-link>
   </div>
 </template>

@@ -1,16 +1,12 @@
 <script setup>
 const {locale} = useI18n()
 
-const faq = ref()
 
-const fetchFaq = async () => {
-  const {data} = await useAsyncData(`content/${locale.value}/faq`, () => {
-    return queryContent(`${locale.value}/faq`).find()
-  })
-  faq.value = data.value
-  }
-fetchFaq()
-watch(() => locale.value, fetchFaq)
+const {data: faqContent, refresh} = await useAsyncData('faqContent', () => {
+  return queryContent(`${locale.value}/faq`).find()
+})
+
+watch(() => locale.value, refresh)
 
 const expandedItems = ref([]);
 const toggleAnswer = (faqItemPath) => {
@@ -29,7 +25,7 @@ const isVisible = (faqItemPath) => expandedItems.value.includes(faqItemPath)
     <h2 class="text-2xl font-bold leading-10 tracking-tight text-gray-900">{{ $t('faq.title') }}</h2>
     <dl class="mt-10 space-y-6 divide-y divide-gray-900/10">
 
-      <template v-for="entry in faq" :key="entry?._path">
+      <template v-for="entry in faqContent" :key="entry?._path">
 
         <div class="pt-6">
           <dt>
