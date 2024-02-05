@@ -102,12 +102,13 @@ onMounted(async () => {
             'type': 'Feature',
             'geometry': {
               'type': 'Point',
-              'coordinates': [11.733521,48.412905]
+              'coordinates': [11.7335,48.4129]
             }
           }
         ]
       }
     });
+
     map.addLayer({
       'id': 'points',
       'type': 'symbol',
