@@ -27,6 +27,7 @@ const changeLocale = (localeCode: string) => {
       <div class="flex items-center gap-3"><span class="text-xl font-bold">leitstelle.io</span></div>
     </nuxt-link>
     <nav class="space-x-10">
+      <nuxt-link class="text-black hover:text-yellow-400" to="https://forum.leitstelle.io" external>Forum</nuxt-link>
       <nuxt-link class="text-black hover:text-yellow-400" :to="localePath('/blog')">Blog</nuxt-link>
       <nuxt-link class="text-black hover:text-yellow-400" :to="localePath('/faq')">FAQ</nuxt-link>
       <nuxt-link class="text-black hover:text-yellow-400" external to="https://discord.gg/cdRq3bztJu">Discord</nuxt-link>
