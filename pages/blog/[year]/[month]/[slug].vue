@@ -17,7 +17,7 @@ watchEffect(locale, refresh(), {
 
 <template>
   <div class="mx-auto flex w-full max-w-3xl flex-col gap-16 px-4 py-12 lg:px-0 lg:py-32">
-    <article class="prose prose-gray">
+    <article class="mx-auto prose prose-gray">
       <time :datetime="blogPost?.published_at" class="text-gray-500 text-xs">{{ blogPost?.published_at }}</time>
       <ContentRendererMarkdown :value="blogPost"/>
     </article>

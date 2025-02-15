@@ -1,5 +1,10 @@
 export default {
     welcome: 'Welcome',
+    banner: {
+        info: 'Important information',
+        text: 'The project is paused until July 2025 – More details here',
+        link: '/en/blog/2025/01/a-new-career'
+    },
     header: {
         title: 'Coordinate emergencies in ',
         realtime: 'realtime',

@@ -1,5 +1,10 @@
 export default {
     welcome: 'Willkommen',
+    banner: {
+        info: 'Wichtige Information',
+        text: 'Das Projekt pausiert bis Juli 2025 – Mehr dazu hier',
+        link: '/blog/2025/01/a-new-career'
+    },
     header: {
         title: 'Koordiniere Einsätze in ',
         realtime: 'Echtzeit',
