@@ -2,6 +2,7 @@
 published_at: "2023-08-06"
 title: "First API Goes Live Today 🌍"
 description: "Since the beginning of the project, I have been working behind the scenes on the backend to establish the foundation of the API and game architecture. Now, the API is live, allowing the display of all stations and retrieval of details for individual stations."
+cover: "/images/blog/05-api-goes-live.png"
 ---
 
 ![](/images/blog/05-api-goes-live.png)

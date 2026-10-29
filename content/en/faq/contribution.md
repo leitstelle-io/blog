@@ -1,6 +1,8 @@
 ---
 locale: en
+order: 2
+category: community
 ---
 
 # How can I get involved?
-Join the Discord and share your ideas with both me and the community. Especially in the beginning, but also in the future, I need numerous suggestions and exchanges to implement the game optimally.
+Join the [Discord](https://discord.gg/cdRq3bztJu) or post in the [forum](https://forum.leitstelle.io). Ideas, experience from active service and tips about your stations and vehicles help me enormously in making the game as real as possible.

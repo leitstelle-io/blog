@@ -1,6 +1,8 @@
 ---
 locale: de
+order: 2
+category: community
 ---
 
-# Wie kann Ich mich mit einbringen?
-Tritt dem Discord bei und teile deine Ideen sowohl mit mir als auch mit der Community. Gerade zu Beginn, aber auch in der Zukunft, benötige ich zahlreiche Anregungen und Austausch, um das Spiel optimal umzusetzen.
+# Wie kann ich mich einbringen?
+Tritt dem [Discord](https://discord.gg/cdRq3bztJu) bei oder schreib im [Forum](https://forum.leitstelle.io) mit. Ideen, Erfahrungen aus dem Einsatzdienst und Hinweise zu euren Wachen und Fahrzeugen helfen mir enorm, das Spiel so echt wie möglich zu machen.

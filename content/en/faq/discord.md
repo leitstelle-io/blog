@@ -1,6 +1,10 @@
 ---
 locale: en
+order: 3
+category: community
 ---
 
-# What is Discord?
-Discord is currently the primary platform for communication, as it offers free text, voice, and video chat functions. It enables effective coordination and interaction within the community. Later, it will also have a standalone forum.
+# Discord or forum – where do I find what?
+The [Discord](https://discord.gg/cdRq3bztJu) is for quick, casual chat, and it's where news lands first.
+
+The [forum](https://forum.leitstelle.io) is for longer discussions, suggestions and anything worth finding again later.

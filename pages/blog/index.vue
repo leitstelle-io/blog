@@ -1,40 +1,25 @@
 <script setup lang="ts">
-const {locale} = useI18n()
-const localePath = useLocalePath();
+const {locale, t} = useI18n()
 
-const {data: blogPosts, refresh} = await useAsyncData(
-    'blogPosts',
-    () => queryContent(`${locale.value}/blog`)
+useHead({title: 'Devlog'})
+
+const {data: blogPosts} = await useAsyncData(
+    `blog-index-${locale.value}`,
+    () => queryContent(locale.value, 'blog')
         .sort({'published_at': -1})
-        .find()
+        .find(),
+    {watch: [locale]}
 )
-
-watchEffect(locale, refresh(), {
-  immediate: true
-})
 </script>
+
 <template>
-  <div class="mx-auto flex w-full max-w-3xl flex-col gap-16 px-4 py-12 lg:px-0 lg:py-32">
-    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{ $t('blog.title') }}</h2>
-    <div class="space-y-16">
-      <template v-for="blog in blogPosts">
-        <article class="flex flex-col items-start justify-between">
-          <div class="flex items-center gap-x-4 text-xs">
-            <time :datetime="blog?.published_at" class="text-gray-500">{{ blog?.published_at }}</time>
-            <!-- TODO ADD TAGS -->
-            <!--<a href="#" class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Marketing</a>-->
-          </div>
-          <div class="group relative">
-            <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-              <nuxt-link :to="localePath(blog?._path)">
-                <span class="absolute inset-0"></span>
-                {{ blog.title }}
-              </nuxt-link>
-            </h3>
-            <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{{ blog.description }}</p>
-          </div>
-        </article>
-      </template>
-    </div>
-  </div>
+  <main class="mx-auto max-w-6xl px-4 py-16 lg:px-8 lg:py-24">
+    <h1 class="font-pixel text-4xl font-semibold text-ink sm:text-5xl">Devlog</h1>
+    <p class="mt-4 max-w-[60ch] text-lg leading-relaxed text-ink/80">{{ t('blog.lead') }}</p>
+    <ul class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <li v-for="post in blogPosts" :key="post._path">
+        <post-card :post="post"/>
+      </li>
+    </ul>
+  </main>
 </template>

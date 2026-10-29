@@ -2,6 +2,7 @@
 published_at: "2023-09-11"
 title: "From €1200 to €1.50: The Map Conversion That Changed Everything! 🌍"
 description: "In the past month, significant progress has been made, including the automation of cost-effective conversion from image-based OpenStreetMap (OSM) maps to vector form. This not only enables global map coverage but also reduces conversion costs from €1200 to €1.50 per update."
+cover: "/images/blog/09-cost-saving-map-conversion.png"
 ---
 
 ![](/images/blog/09-cost-saving-map-conversion.png)

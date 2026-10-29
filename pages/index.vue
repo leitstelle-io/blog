@@ -1,10 +1,21 @@
+<script setup lang="ts">
+const {t} = useI18n()
+
+useSeoMeta({
+  title: () => t('seo.title'),
+  ogTitle: () => `Leitstelle – ${t('seo.title')}`,
+  description: () => t('seo.description'),
+  ogDescription: () => t('seo.description'),
+})
+</script>
+
 <template>
-  <main class="flex flex-1 flex-col">
-    <div class="mx-auto flex w-full max-w-3xl flex-col gap-16 px-4 py-12 lg:px-0 lg:py-32">
-      <Header/>
-      <Map/>
-      <Features/>
-      <Blog-List/>
-    </div>
+  <main class="flex flex-col gap-24 pb-24">
+    <hero/>
+    <features/>
+    <gallery/>
+    <fleet-hud/>
+    <spec-sheet/>
+    <follow-section/>
   </main>
 </template>

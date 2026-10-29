@@ -1,23 +1,27 @@
 <script setup>
-const {params} = useRoute()
-const {locale} = useI18n()
+const {t} = useI18n()
+const formatDate = useFormattedDate()
 
-const {data: gameState, refresh} = await useAsyncData(
-    'gameState',
-    () => queryContent(locale.value, 'game-state').findOne()
-)
+// Update with every change to the board (spec.items in lang/*.ts)
+const UPDATED = '2026-10-29'
 
-if (!gameState.value) await clearError({redirect: '/'})
-
-watchEffect(locale, refresh(), {
-  immediate: true
+useSeoMeta({
+  title: () => t('status.title'),
+  description: () => t('status.lead'),
+  ogDescription: () => t('status.lead'),
 })
 </script>
 
 <template>
-  <div class="mx-auto flex w-full max-w-3xl flex-col gap-16 px-4 py-12 lg:px-0 lg:py-32">
-    <article class="mx-auto prose prose-gray">
-      <ContentRendererMarkdown :value="gameState"/>
-    </article>
-  </div>
+  <main class="flex flex-col gap-24 pb-24 pt-16 lg:pt-24">
+    <section class="mx-auto w-full max-w-6xl px-4 lg:px-8" aria-labelledby="status-title">
+      <h1 id="status-title" class="max-w-3xl text-balance font-pixel text-4xl font-semibold leading-tight text-ink sm:text-5xl">{{ t('status.title') }}</h1>
+      <p class="mt-5 max-w-[60ch] text-lg leading-relaxed text-ink/80">{{ t('status.lead') }}</p>
+      <p class="mt-4 font-pixel text-sm text-muted">
+        <time :datetime="UPDATED">{{ t('status.updated', {date: formatDate(UPDATED)}) }}</time>
+      </p>
+      <dev-board wide class="mt-10 lg:mt-14"/>
+    </section>
+    <follow-section/>
+  </main>
 </template>

@@ -2,6 +2,7 @@
 published_at: "2023-09-11"
 title: "Von 1200€ auf 1,50€: Die Kartenkonvertierung, die alles verändert hat! 🌍"
 description: "Im letzten Monat wurden erhebliche Fortschritte erzielt, darunter die Automatisierung der kostengünstigen Umwandlung von bildbasierten OpenStreetMap-Karten in Vektorform. Dies ermöglicht nicht nur eine globale Kartenabdeckung, sondern senkt auch die Konvertierungskosten von 1200 € auf 1,50 € pro Update."
+cover: "/images/blog/09-cost-saving-map-conversion.png"
 ---
 
 ![](/images/blog/09-cost-saving-map-conversion.png)

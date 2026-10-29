@@ -2,6 +2,7 @@
 published_at: "2024-01-08"
 title: "First Mission and Initial Steps with OSRM"
 description: "From the initial steps with OSRM to the development of a custom Map Debugging Tool and a glimpse into the integration of Overpass."
+cover: "/images/blog/10-first-steps-with-osrm.png"
 ---
 
 ![](/images/blog/10-first-steps-with-osrm.png)

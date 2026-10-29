@@ -1,5 +1,6 @@
 <script setup>
 import {Marker, Map} from "maplibre-gl";
+import "maplibre-gl/dist/maplibre-gl.css";
 import {missionBurningHospital} from "~/data/routes";
 import fireMarker from '../public/images/icons/fire.png';
 import {animateRoute} from "~/util/map/animateRoute";

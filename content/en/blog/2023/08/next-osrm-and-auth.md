@@ -2,6 +2,7 @@
 published_at: "2023-08-05"
 description: "I plan to create a Proof of Concept (POC) to test routing, real-time vehicle display in the backend and frontend, and vehicle simulation using OSRM. Simultaneously, I will integrate login and registration features in the frontend to seamlessly shift the POC there and optimize the overall functionality of the project."
 title: "Next: OSRM and Authentication"
+cover: "/images/blog/04-next-osrm-and-auth.png"
 ---
 
 ![](/images/blog/04-next-osrm-and-auth.png)

@@ -1,6 +1,10 @@
 ---
 locale: en
+order: 1
+category: project
 ---
 
 # When will the game be finished?
-Development is actively underway, but since I'm not working on it around the clock and there are still some things to clarify, I unfortunately cannot provide a specific date. My goal is to present you with something playable within the next one to two years. I know it requires patience, but I'm doing my best to create a great game for you. Thank you for being so patient and accompanying me on this adventure!
+I'm deliberately not naming a date. The game is in active development and grows week by week, but I don't want to make promises I can't keep.
+
+As soon as there are first playtests, you'll hear about it first on [Discord](https://discord.gg/cdRq3bztJu) and in the [forum](https://forum.leitstelle.io).

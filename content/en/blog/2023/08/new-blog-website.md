@@ -2,6 +2,7 @@
 published_at: "2023-08-09"
 title: "The Blog in New Splendor"
 description: "The website now features a blog for news, allowing updates to be tracked outside of Discord, while the Discord server remains a space for discussions."
+cover: "/images/blog/06-new-website.png"
 ---
 
 ![](/images/blog/06-new-website.png)

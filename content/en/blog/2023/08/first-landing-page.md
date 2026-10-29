@@ -2,6 +2,7 @@
 published_at: "2023-08-04"
 description: "The provisional website is online, feedback is welcome, and the focus is on achieving quick and practical results."
 title: "The 'Website' is live ✨"
+cover: "/images/blog/03-first-landing-page.png"
 ---
 
 ![](/images/blog/03-first-landing-page.png)

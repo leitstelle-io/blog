@@ -1,0 +1,313 @@
+@font-face {
+  font-family: 'Pixelify Sans';
+  src: url('/fonts/PixelifySans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pixelify Sans';
+  src: url('/fonts/PixelifySans-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-display: swap;
+}
+
+/* Palette taken from the game's night grading and window chrome.
+   Channels are the source, so Tailwind's opacity modifiers (text-ink/80) work. */
+:root {
+  --night-rgb: 18 18 42;
+  --night: rgb(var(--night-rgb));
+  --night-2-rgb: 27 26 58;
+  --night-2: rgb(var(--night-2-rgb));
+  --night-3-rgb: 37 36 74;
+  --night-3: rgb(var(--night-3-rgb));
+  --bevel-hi: #3a3766;
+  --bevel-lo: #08081a;
+  --ink-rgb: 255 233 200;
+  --ink: rgb(var(--ink-rgb));
+  --muted-rgb: 169 163 201;
+  --muted: rgb(var(--muted-rgb));
+  --brand-rgb: 142 42 34;
+  --brand: rgb(var(--brand-rgb));
+  --brand-hi-rgb: 176 65 47;
+  --brand-hi: rgb(var(--brand-hi-rgb));
+  --brand-lo-rgb: 94 26 21;
+  --brand-lo: rgb(var(--brand-lo-rgb));
+  --amber-rgb: 224 138 30;
+  --amber: rgb(var(--amber-rgb));
+  --amber-hi-rgb: 255 210 122;
+  --amber-hi: rgb(var(--amber-hi-rgb));
+  --amber-lo-rgb: 138 79 12;
+  --amber-lo: rgb(var(--amber-lo-rgb));
+  --beacon-rgb: 47 107 255;
+  --beacon: rgb(var(--beacon-rgb));
+  --beacon-soft-rgb: 127 162 255;
+  --beacon-soft: rgb(var(--beacon-soft-rgb));
+  --alarm-rgb: 200 40 44;
+  --alarm: rgb(var(--alarm-rgb));
+  --select-rgb: 92 255 143;
+  --select: rgb(var(--select-rgb));
+}
+
+html {
+  background: var(--night);
+  color-scheme: dark;
+}
+
+body {
+  background: var(--night);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Pixelify's fi/fl ligatures are drawn as a single blob */
+.font-pixel,
+.prose :where(h1, h2, h3, h4) {
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "clig" 0;
+}
+
+::selection {
+  background: var(--amber);
+  color: var(--night);
+}
+
+/* Bevels: light top-left, dark bottom-right, like the in-game windows */
+.bevel {
+  box-shadow:
+    inset 2px 2px 0 var(--bevel-hi),
+    inset -2px -2px 0 var(--bevel-lo);
+}
+
+.bevel-in {
+  box-shadow:
+    inset 2px 2px 0 var(--bevel-lo),
+    inset -2px -2px 0 var(--bevel-hi);
+}
+
+.glow-amber {
+  text-shadow: 0 0 12px rgb(224 138 30 / 0.55);
+}
+
+.glow-beacon {
+  text-shadow: 0 0 12px rgb(47 107 255 / 0.7);
+}
+
+.pixelated {
+  image-rendering: pixelated;
+}
+
+/* Keyboard focus: amber ring, square like the rest of the chrome */
+:focus-visible {
+  outline: 2px solid var(--amber-hi);
+  outline-offset: 2px;
+}
+
+/* Scrollbars: an Indigo Rim key in a Well Black slot.
+   Chromium ignores ::-webkit-scrollbar once scrollbar-color is set, so the
+   standard properties only go to browsers without the pseudo-elements. */
+@supports not selector(::-webkit-scrollbar) {
+  html {
+    scrollbar-color: var(--bevel-hi) var(--bevel-lo);
+    scrollbar-width: auto;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+  background: var(--bevel-lo);
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-corner {
+  background: var(--bevel-lo);
+}
+
+::-webkit-scrollbar-thumb {
+  min-height: 32px;
+  border-radius: 0;
+  background: var(--bevel-hi);
+  box-shadow:
+    inset 2px 2px 0 rgb(var(--muted-rgb) / 0.45),
+    inset -2px -2px 0 var(--night-2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--bevel-hi), var(--muted) 20%);
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* ---------- Motion ----------
+   One living moment: until the gameplay video exists, the hero scene flickers and flashes the way
+   the game does at night. Everything else is feedback. Loops are stepped like sprite animation,
+   pause while their section is offscreen ([data-live="false"]) and stop under reduced motion. */
+:root {
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Light layers cut from the hero frame itself, so they sit on the fire and the light bars at any crop */
+.light-layer {
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+@keyframes firelight {
+  0% { opacity: 0.55; }
+  9% { opacity: 0.8; }
+  17% { opacity: 0.6; }
+  26% { opacity: 0.9; }
+  34% { opacity: 0.5; }
+  47% { opacity: 0.75; }
+  58% { opacity: 0.62; }
+  66% { opacity: 0.86; }
+  79% { opacity: 0.56; }
+  88% { opacity: 0.78; }
+  100% { opacity: 0.55; }
+}
+
+.firelight {
+  opacity: 0.65;
+  animation: firelight 2.6s steps(1, end) infinite;
+}
+
+/* Double flash, then dark: two flashes every 1.4s, well under three flashes a second */
+@keyframes beacon-flash {
+  0% { opacity: 1; }
+  7% { opacity: 0; }
+  14% { opacity: 1; }
+  21% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.scene-beacon {
+  opacity: 0;
+  animation: beacon-flash 1.4s steps(1, end) infinite;
+}
+
+/* The second group of vehicles flashes half a cycle later, like real light bars out of sync */
+.scene-beacon-late {
+  animation-delay: -0.7s;
+}
+
+/* Status lamp: a recessed blue lamp that flashes on standby */
+.status-lamp {
+  position: relative;
+  display: inline-block;
+  flex: none;
+  width: 10px;
+  height: 10px;
+  /* the unlit lamp: a well tinted with a little beacon blue */
+  background: linear-gradient(rgb(var(--beacon-rgb) / 0.22), rgb(var(--beacon-rgb) / 0.22)), var(--bevel-lo);
+  box-shadow:
+    inset 1px 1px 0 var(--bevel-lo),
+    inset -1px -1px 0 var(--bevel-hi);
+}
+
+.status-lamp::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: var(--beacon-soft);
+  filter: drop-shadow(0 0 3px var(--beacon)) drop-shadow(0 0 6px var(--beacon));
+  animation: beacon-flash 1.4s steps(1, end) infinite;
+}
+
+[data-live="false"] :is(.firelight, .scene-beacon) {
+  animation-play-state: paused;
+}
+
+[data-live="false"] .status-lamp::after {
+  animation-play-state: paused;
+}
+
+/* Windows unfold from the middle in four frames, the way the game's dialogs open */
+@keyframes window-open {
+  from { clip-path: inset(50% 0 50% 0); }
+  to { clip-path: inset(0); }
+}
+
+.window-open {
+  animation: window-open 200ms steps(4, end) both;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+dialog[open]::backdrop {
+  animation: fade-in 200ms var(--ease-out);
+}
+
+/* Shot changes in the lightbox: a short crossfade so the swap reads as the same window */
+.shot-in {
+  animation: fade-in 160ms var(--ease-out);
+}
+
+@keyframes answer-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: none; }
+}
+
+details[open] > .faq-answer {
+  animation: answer-in 220ms var(--ease-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* A still, lit scene: the fire glows and the light bars and lamps stay on */
+  .firelight,
+  .status-lamp::after {
+    animation: none;
+  }
+
+  .scene-beacon {
+    animation: none;
+    opacity: 0.55;
+  }
+
+  /* Windows and answers still appear, they just fade instead of unfolding or sliding */
+  .window-open,
+  details[open] > .faq-answer {
+    animation: fade-in 120ms ease-out both;
+  }
+}
+
+/* ---------- Cursor ----------
+   The game's pointer, drawn in pixels: parchment by default, Sodium Amber over anything you can
+   press, and the game's crosshair over footage. Mouse only: touch screens get none, and text
+   fields and running prose keep the system text cursor. Each rule lists a plain PNG first, so a
+   browser without image-set still gets the pixel cursor. */
+@media (pointer: fine) {
+  html {
+    cursor: url("/cursors/arrow.png") 0 0, auto;
+    cursor: -webkit-image-set(url("/cursors/arrow.png") 1x, url("/cursors/arrow@2x.png") 2x) 0 0, auto;
+    cursor: image-set(url("/cursors/arrow.png") 1x, url("/cursors/arrow@2x.png") 2x) 0 0, auto;
+  }
+
+  /* plain selectors, not :where(), so they outrank Tailwind's `button { cursor: pointer }` */
+  a[href], button:not(:disabled), summary, label[for], select, [role="tab"], [data-cursor="action"] {
+    cursor: url("/cursors/arrow-action.png") 0 0, pointer;
+    cursor: -webkit-image-set(url("/cursors/arrow-action.png") 1x, url("/cursors/arrow-action@2x.png") 2x) 0 0, pointer;
+    cursor: image-set(url("/cursors/arrow-action.png") 1x, url("/cursors/arrow-action@2x.png") 2x) 0 0, pointer;
+  }
+
+  /* footage wins over the action arrow, also when the footage itself is a button */
+  [data-cursor="scene"], [data-cursor="scene"] *, button[data-cursor="scene"]:not(:disabled) {
+    cursor: url("/cursors/crosshair.png") 13 13, crosshair;
+    cursor: -webkit-image-set(url("/cursors/crosshair.png") 1x, url("/cursors/crosshair@2x.png") 2x) 13 13, crosshair;
+    cursor: image-set(url("/cursors/crosshair.png") 1x, url("/cursors/crosshair@2x.png") 2x) 13 13, crosshair;
+  }
+
+  :where(input:not([type="checkbox"], [type="radio"], [type="button"], [type="submit"]), textarea, [contenteditable]),
+  .prose :where(p, li, blockquote, td, th, pre, code) {
+    cursor: text;
+  }
+
+  :where(button:disabled, [aria-disabled="true"]) {
+    cursor: not-allowed;
+  }
+}
